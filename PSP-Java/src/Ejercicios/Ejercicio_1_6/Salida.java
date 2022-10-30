@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Ejercicio_1_6 {
+public class Salida {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		InputStreamReader in = new InputStreamReader(System.in);
