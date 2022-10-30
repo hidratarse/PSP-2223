@@ -1,3 +1,4 @@
+package Ejemplos;
 import java.io.*;
 
 public class Ejemplo2 {
