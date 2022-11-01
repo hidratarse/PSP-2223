@@ -2,10 +2,9 @@ package Ejercicios.Ejercicios_4_5_6;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
-public class E5b {
+public class E6 {
 	public static void main(String[] args) throws IOException {
 		
 		Scanner sc = new Scanner(System.in);
@@ -14,25 +13,13 @@ public class E5b {
 		
 		System.out.println("La cadena es:"+str);
 		
+		File salida = new File("salida.txt");
 		File path = new File(".\\bin");
 		ProcessBuilder pb = new ProcessBuilder("java","Ejercicios.Ejercicios_4_5_6.E5",str);
 		pb.directory(path);
-		Process p = pb.start();
 		
-		InputStream is=p.getInputStream();
+		pb.redirectOutput(salida);
 		
-		int c;
-		while ((c = is.read()) != -1) {
-			System.out.print((char) c);
-		}
-		is.close();
-		
-		int exitVal;
-        try {
-            exitVal = p.waitFor();
-            System.out.println("Valor de Salida: " + exitVal);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+		pb.start();		
 	}
 }

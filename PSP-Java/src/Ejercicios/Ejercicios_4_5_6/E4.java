@@ -3,10 +3,11 @@ package Ejercicios.Ejercicios_4_5_6;
 public class E4 {
 	public static void main(String []args) {
 		
+		System.out.println("Programa ejecutado");
 		int n=args.length;
 		
 		if (n<1) {
-			System.exit(14);
+			System.exit(1);
 		} else if (args[0] instanceof String) {
 			System.exit(2);
 		} else if (Integer.parseInt(args[0])<0) {
