@@ -8,15 +8,15 @@ public class Ejemplo6 {
 		//File directorio = new File(".\\bin");
 		
 		ProcessBuilder test = new ProcessBuilder();
-		Map entorno = test.environment();
+		Map<?, ?> entorno = test.environment();
 		System.out.println("Variables de entorno:");
 		System.out.println(entorno);
 
 		test = new ProcessBuilder("java", "LeerNombre", "Maria Jes�s");		
 		
 		// devuelve el nombre del proceso y sus argumentos
-		List l = test.command();
-		Iterator iter = l.iterator();
+		List<?> l = test.command();
+		Iterator<?> iter = l.iterator();
 		System.out.println("\nArgumentos del comando:");
 		while (iter.hasNext())
 			System.out.println(iter.next());
