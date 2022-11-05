@@ -1,4 +1,4 @@
-package tema2.ejercicios;
+package tema_2.ejercicios;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

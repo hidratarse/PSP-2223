@@ -1,4 +1,4 @@
-package tema2.ejercicios;
+package tema_2.ejercicios;
 
 public class PruebaHilo implements Runnable{
 	
