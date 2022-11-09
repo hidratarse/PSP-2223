@@ -20,17 +20,34 @@ public class Juego extends JFrame{
 		
 		JButton b = new JButton("pulsa");
 		
-		Futbol c=new Futbol(l);
+		Object sync = new Object();
+		
+		getContentPane().add(b);
+		
+		Futbol c=new Futbol(l, sync);
+		
+		Thread t =new Thread(c);
+		
+		t.start();
 		
 		b.addActionListener(new ActionListener() {
-			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				Thread t =new Thread(c);
-				t.start();
+			public void actionPerformed(ActionEvent e) {		
+				synchronized(sync) {
+					sync.notify();
+				}
 			}
 		});
-		getContentPane().add(b);
+		
+		JButton bPara = new JButton("¡Para!");
+		getContentPane().add(bPara);
+		bPara.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				t.interrupt();
+			}
+		});
+		
 		setSize(500,400);
 		setVisible(true);
 		
