@@ -1,60 +1,35 @@
 #include <stdio.h>
-
 #include <unistd.h>
-
 #include <stdlib.h>
-
 #include <string.h>
 
-
-
 int main(void )
-
 {
-
-        int hijo1[2];
-
+    int hijo1[2];
 	int hijo2[2];
+    int entero = -1;
 
-        int entero = -1;
-
-        
-
-       
-
-        
-
-        char buffer[sizeof(entero)];
+    char buffer[sizeof(entero)];
 
 	srand(time(NULL));
 
-        pipe(hijo1); //creo pipe
-
-        pipe(hijo2);
-
-	
+    pipe(hijo1); //creo pipe
+    pipe(hijo2);
 
 	for(int i=0; i<2; i++){
-
-		
-
 		if (fork() == 0){ //Hijo
-
 			int numhijo1=-1;
+       		int numhijo2=-1;
 
-       			int numhijo2=-1;
+			do{
 
-                	do{
-
-                		if(i==0){
+				if(i==0){
 
 					close(hijo1[1]); //cierra el descriptor de entrada
-
 					numhijo1=read(hijo1[0], &entero, sizeof(entero));
+					printf("\tEl HIJO recibe MULTIPLOS DE 4 : %d\n",entero);
 
-			        	printf("\tEl HIJO recibe MULTIPLOS DE 4 : %d\n",entero);
-
-			        }else{
+				}else{
 
 					close(hijo2[1]); //cierra el descriptor de entrada
 
@@ -64,7 +39,7 @@ int main(void )
 
 				}
 
-                	}while((numhijo1>0 && numhijo2==-1) && (numhijo1==-1 && numhijo2>0));
+			}while((numhijo1>0 && numhijo2==-1) && (numhijo1==-1 && numhijo2>0));
 
 			exit(0);   
 
@@ -93,15 +68,10 @@ int main(void )
 			printf("El PADRE ENVIA MENSAJE AL HIJO normales ...%d\n",entero);
 
 		}
-
 	}
 
 	for(int i=0; i<2; i++){
-
 		wait(NULL); 
-
 	}
-
-        return 0;
-
+    return 0;
 }
