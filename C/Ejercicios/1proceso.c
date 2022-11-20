@@ -8,8 +8,6 @@ int main() {
 
 	int cont,j,i;
 
-	
-
 	for(i=100000; i<=200000; i++){
 
 		cont=0;
