@@ -8,7 +8,7 @@ public class E4b {
 	public static void main(String[] args) throws IOException {
 
 		File directorio = new File(".\\bin");
-		ProcessBuilder pb = new ProcessBuilder("java", "Ejercicios.Ejercicios_4_5_6.E4","1");
+		ProcessBuilder pb = new ProcessBuilder("java", "Ejercicios.Ejercicios_4_5_6.E4","-1","2");
 		pb.directory(directorio);
 		
 		System.out.printf("Directorio de trabajo: %s%n",pb.directory());

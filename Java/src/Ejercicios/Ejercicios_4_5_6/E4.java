@@ -4,7 +4,7 @@ public class E4 {
 	public static void main(String []args) {
 		
 		System.out.println("Programa ejecutado");
-		if(args.length<1) {
+		if(args.length==1) {
 			System.out.println("argumentos =1");
 			System.exit(1);
 		}
