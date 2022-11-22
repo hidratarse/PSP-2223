@@ -1,18 +1,18 @@
 package tema_2.ejercicios.almacen;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 public class Almacen {
 		
 	String [] productos= {"Naranja","Pomelo","Banana","Manzana",
 			"Pera","Arandanos","Mandarinas","Frambuesas"};
 	
-	List<String> lista;
+	ArrayList<String> lista;
 	
 	public Almacen() {
-		this.lista= Arrays.asList(productos);
+		this.lista=new ArrayList<String>();
+		this.lista.addAll(Arrays.asList(productos));
 	}
 	
 	synchronized void comprobarLista(String producto, String nom) {
@@ -24,13 +24,12 @@ public class Almacen {
 		}
 		boolean encontrado=false;
 		if (lista.size()>0) {
-			Iterator<String> iterador = lista.iterator();
-			while (iterador.hasNext()) {
-				String busca = (String) iterador.next();
+			for (int i = 0; i < lista.size(); i++) {
+				String busca = lista.get(i);
 				System.out.println("BUSCANDO...."+busca);
 				if (producto.equalsIgnoreCase(busca)) {
 					System.out.println("EL ELEMENTO SE ENCUENTRA EN LA LISTA, TE LO SACO");
-					iterador.remove();
+					lista.remove(i);
 					encontrado=true;
 				}
 			}
