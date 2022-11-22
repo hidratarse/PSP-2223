@@ -9,7 +9,7 @@ public class E5b {
 	public static void main(String[] args) throws IOException {
 		
 		Scanner sc = new Scanner(System.in);
-		String str = sc.next();
+		String str = sc.nextLine();
 		sc.close();
 		
 		System.out.println("La cadena es:"+str);
