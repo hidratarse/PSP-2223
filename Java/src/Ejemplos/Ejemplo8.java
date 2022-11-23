@@ -6,7 +6,7 @@ public class Ejemplo8 {
   public static void main(String args[]) throws IOException {
     ProcessBuilder pb = new ProcessBuilder("CMD");
     
-    File fBat = new File("comandos.bat");
+    File fBat = new File("ficheroP.bat");
     File fOut = new File("salida.txt");
     File fErr = new File("error.txt");
  

@@ -1,0 +1,90 @@
+Sintaxis: java [opciones] <clase principal> [argumentos...]
+           (para ejecutar una clase)
+   o  java [opciones] -jar <archivo jar> [argumentos...]
+           (para ejecutar un archivo jar)
+   o  java [opciones] -m <módulo>[/<clase principal>] [argumentos...]
+       java [opciones] --module <módulo>[/<clase principal>] [argumentos...]
+           (para ejecutar la clase principal en un módulo)
+
+ Argumentos que siguen la clase principal, -jar <archivo jar>, -m o --module
+ <módulo>/<clase principal> se transfieren como argumentos a una clase principal.
+
+ donde las opciones incluyen:
+
+    -cp <ruta de búsqueda de clase de directorios y archivos zip/jar>
+    -classpath <ruta de búsqueda de clase de directorios y archivos zip/jar>
+    --class-path <ruta de búsqueda de clase de directorios y archivos zip/jar>
+                  Una lista separada por el carácter ;, archivos JAR
+                  y archivos ZIP para buscar archivos de clases.
+    -p <ruta módulo>
+    --module-path <ruta módulo>...
+                  Una lista de directorios separada por el carácter ;, cada directorio
+                  es un directorio de módulos.
+    --upgrade-module-path <ruta módulo>...
+                  Una lista de directorios separada por el carácter ;, cada directorio
+                  es un directorio de módulos que sustituye a
+                  los módulos actualizables en la imagen de tiempo de ejecución
+    --add-modules <nombre módulo>[,<nombre módulo>...]
+                  módulos de raíz que resolver, además del módulo inicial.
+                  <nombre módulo> también puede ser ALL-DEFAULT, ALL-SYSTEM,
+                  ALL-MODULE-PATH.
+    --list-modules
+                  mostrar módulos observables y salir
+    -d <nombre de módulo>
+    --describe-module <nombre módulo>
+                  describir un módulo y salir
+    --dry-run     crear VM y cargar la clase principal pero sin ejecutar el método principal.
+                  La opción --dry-run puede ser útil para validar
+                  las opciones de línea de comandos, como la configuración del sistema de módulos.
+    --validate-modules
+                  validar todos los módulos y salir
+                  La opción --validate-modules puede ser útil para encontrar
+                  conflictos y otros errores con módulos en la ruta de módulos.
+    -D<nombre>=<valor>
+                  definir una propiedad de sistema
+    -verbose:[class|module|gc|jni]
+                  activar la salida en modo verbose
+    -version      imprimir versión de producto en el flujo de errores y salir
+    --version     imprimir versión de producto en el flujo de salida y salir
+    -showversion  imprimir versión de producto en el flujo de errores y continuar
+    --show-version
+                  -showversion  imprimir versión de producto en el flujo de salida y continuar
+    --show-module-resolution
+                  mostrar la salida de resolución de módulo durante el inicio
+    -? -h -help
+                  imprimir este mensaje de ayuda en el flujo de errores
+    --help        imprimir este mensaje de ayuda en el flujo de salida
+    -X            imprimir ayuda de opciones adicionales en el flujo de errores
+    --help-extra  imprimir ayuda de opciones adicionales en el flujo de salida
+    -ea[:<nombre paquete>...|:<nombre clase>]
+    -enableassertions[:<nombre paquete>...|:<nombre clase>]
+                  activar afirmaciones con una granularidad especificada
+    -da[:<nombre paquete>...|:<nombre clase>]
+    -disableassertions[:<nombre paquete>...|:<nombre clase>]
+                  desactivar afirmaciones con una granularidad especificada
+    -esa | -enablesystemassertions
+                  activar afirmaciones del sistema
+    -dsa | -disablesystemassertions
+                  desactivar afirmaciones del sistema
+    -agentlib:<nombre bib>[=<opciones>]
+                  cargar biblioteca de agente nativo <nombre bib>, por ejemplo, -agentlib:jdwp
+                  ver también -agentlib:jdwp=help
+    -agentpath:<nombre ruta>[=<opciones>]
+                  cargar biblioteca de agente nativo por nombre completo de ruta
+    -javaagent:<ruta jar>[=<opciones>]
+                  cargar agente de lenguaje de programación Java, ver java.lang.instrument
+    -splash:<ruta imagen>
+       mostrar pantalla de presentación con imagen especificada
+                  Las imágenes a escala HiDPI están soportadas y se usan automáticamente
+                  si están disponibles. El nombre de archivo de la imagen sin escala, por ejemplo, image.ext,
+                  siempre debe transmitirse como el argumento para la opción -splash.
+                  La imagen a escala más adecuada que se haya proporcionado se escogerá
+                  automáticamente.
+                  Consulte la documentación de la API de la pantalla de presentación para obtener más información.
+    @argument files
+                  uno o más archivos de argumentos que contienen opciones
+    -disable-@files
+                  evitar una mayor expansión del archivo de argumentos
+Para especificar un argumento para una opción larga, puede usar --<nombre>=<valor> o
+--<nombre> <valor>.
+

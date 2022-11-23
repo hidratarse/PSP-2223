@@ -11,30 +11,26 @@ public class E9 {
 	
 	public static void main(String[] args) throws IOException {
 		
-		ProcessBuilder pb = new ProcessBuilder("CMD");
-		
 		File directorio = new File(".\\bin");
-		File fichero = new File("entrada.txt");
-		File error = new File("error.txt");
-		File eProceso = new File("ficheroP.bat");
+		File cadenas = new File("cadeniyas.txt");
 		
-		pb.redirectInput(eProceso);
+		BufferedReader br = new BufferedReader(new FileReader(cadenas));
+		
+		ProcessBuilder pb = new ProcessBuilder("java", "Ejercicios.repaso_examen.E7");
 		pb.directory(directorio);
-		pb.redirectError(error);
-				
+		
+		System.out.printf("Directorio de trabajo: %s%n",pb.directory());
 		Process p = pb.start();
-		
-		BufferedReader br = new BufferedReader(new FileReader(fichero));
-		
-		String str = br.readLine();
-		br.close();
-		
-		System.out.println("Cadena a enviar "+str);
 		
 		OutputStream os=p.getOutputStream();
 		
-		os.write((str+"\n").getBytes());
-		os.flush();
+		String envio ="";
+		while (!envio.contains("*")) {
+			envio = br.readLine();
+			os.write((envio+"\n").getBytes());
+			os.flush();
+		}
+		br.close();
 		
 		InputStream is=p.getInputStream();
 		
