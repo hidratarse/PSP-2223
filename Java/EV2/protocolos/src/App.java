@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 public class App {
     public static void main(String[] args) {
         try {
-            Socket con = new Socket("192.168.20.213", 1234);
+            Socket con = new Socket("192.168.20.200", 8000);
             BufferedOutputStream out = new BufferedOutputStream(con.getOutputStream());
             out.write("mondongo".getBytes());
             out.close();
